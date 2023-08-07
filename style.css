@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.colors-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.color {
+  flex: 25%;
+  min-height: 220px;
+  transition: 0.4s linear;
+  cursor: pointer;
+  position: relative;
+}
+
+.color:hover {
+  filter: brightness(80%);
+}
+
+.color-hex {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+.refresh {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  font-size: 17px;
+  color: #badef2;
+  background-color: rgba(41, 3, 112, 0.986);
+  outline: none;
+  cursor: pointer;
+  transition: 0.4s linear;
+}
+
+.refresh:hover {
+  transform: rotate(180deg);
+}
+
+.copied {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  background-color: rgba(41, 3, 112, 0.986);
+  padding: 15px 40px;
+  min-width: 340px;
+  text-align: center;
+  display: none;
+}

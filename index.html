@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <title>Day # X: Color Picker</title>
+  </head>
+  <body>
+    <div class="colors-container">
+      <div class="color">
+        <div class="color-hex">#000000</div>
+      </div>
+      <div class="color">
+        <div class="color-hex">#000000</div>
+      </div>
+      <div class="color">
+        <div class="color-hex">#000000</div>
+      </div>
+      <div class="color">
+        <div class="color-hex">#000000</div>
+      </div>
+    </div>
+
+    <button class="refresh"><i class="fas fa-sync-alt"></i></button>
+    <div class="copied">Color copied to clipboard!</div>
+
+    <script>
+      // setting random colors
+      $(".refresh")
+        .click(function () {
+          $(".color").each(function () {
+            var rColor = "#" + Math.random().toString(16).substr(2, 6);
+            $(this).css("background-color", rColor);
+            $(this).children(".color-hex").text(rColor);
+          });
+        })
+        .trigger("click");
+
+      // copying to clipboard
+      $(".color").click(function () {
+        var input = $("<input>");
+        var color = $(this).children(".color-hex").text();
+        $("body").append(input);
+        input.val(color).select();
+        document.execCommand("copy");
+        input.remove();
+        $(".copied").fadeIn().delay(2000).fadeOut();
+      });
+    </script>
+  </body>
+</html>
